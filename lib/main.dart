@@ -58,7 +58,7 @@ class Subrata extends StatefulWidget {
 
 class SubrataState extends State<Subrata> {
   String text = 'PRESS ME';
-  String name  = " ";
+  String name  = "";
   int id=0;
 
   @override
@@ -70,6 +70,7 @@ class SubrataState extends State<Subrata> {
           setState(() {
             name = key.currentState?.name??"";
             id=key.currentState?.id??0;
+            debugPrint(" After Inserting Shanto class Property value From Subrata Without Extends Shanto class");
             debugPrint("$name,,,,,$id");
           });
         },
