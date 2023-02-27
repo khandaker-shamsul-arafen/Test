@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body:  Column(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Shanto(key: key),
-             const Subrata(),
+            Shanto(),
+             Subrata(),
           ],
         ),
       ),
@@ -26,23 +26,22 @@ class MyApp extends StatelessWidget {
 }
 
 class Shanto extends StatefulWidget {
-  const Shanto({ required Key key }) : super(key: key);
+
+   String name = "Ornab vai ";
+   int id = 13;
+
   @override
   State createState() => ShantoState();
 }
 
 class ShantoState extends State<Shanto> {
-  String name  = "shanto";
-  int id=12;
-  //String get createdObject => _createdObject;
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return Center(
       child: Column(
         children: [
-          Text(name),
-          Text(id.toString()),
+
         ],
       ),
     );
@@ -50,30 +49,34 @@ class ShantoState extends State<Shanto> {
 }
 
 class Subrata extends StatefulWidget {
-  const Subrata({super.key});
+   Subrata({super.key});
+  var shantoObject=Shanto();
+   String buttonText = 'PRESS ME';
+   String name = "";
+   int id = 0;
+
+
+
+
 
   @override
   State createState() => SubrataState();
 }
 
 class SubrataState extends State<Subrata> {
-  String text = 'PRESS ME';
-  String name  = "";
-  int id=0;
+
+
 
   @override
   Widget build(BuildContext context) {
+    widget.name=widget.shantoObject.name;
+    widget.id=widget.shantoObject.id;
     return Center(
-      child:  ElevatedButton(
-        child:  Text(text),
-        onPressed: () {
-          setState(() {
-            name = key.currentState?.name??"";
-            id=key.currentState?.id??0;
-            debugPrint(" After Inserting Shanto class Property value From Subrata Without Extends Shanto class");
-            debugPrint("$name,,,,,$id");
-          });
-        },
+      child: Column(
+        children: [
+          Text(widget.name),
+          Text(widget.id.toString()),
+        ],
       ),
     );
   }
